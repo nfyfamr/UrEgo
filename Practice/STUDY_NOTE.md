@@ -1,6 +1,6 @@
 # Study Note
 
-## [2D Roguelike Tutorial](https://unity3d.com/kr/learn/tutorials/projects/2d-roguelike-tutorial)
+## [Tutorial/2D Roguelike Tutorial](https://unity3d.com/kr/learn/tutorials/projects/2d-roguelike-tutorial)
 - unity는 2D 모드와 3D 모드를 제공함. 시작할 때 default setting을 2D로 설정할 것.
 - 단축키: Q(hand), W(translate), E(rotate), R(scale)
 - 오브젝트에 씌울 스프라이트를 해당 오브젝트에  드래그 앤 드롭하면, 해당 오브젝트의 애니메이팅 컨트롤러가 생성된다
@@ -18,6 +18,6 @@
 - AnimatorController에서 ‘make transition’으로 한 상태에서 다른 상태로 전이 가능함을 나타낼 수 있음
 - 스프라이트 애니메이션은 두개의 스프라이트간의 이미지 보정이 불가하기 때문에 Settings > Transition Durations 을 0으로 지정해야 함
 
-## [Unity 5 2D Platformer Tutorial](https://www.youtube.com/watch?v=oK_NzdVSxaQ]
+## [Tutorial/Unity 5 2D Platformer Tutorial](https://www.youtube.com/watch?v=oK_NzdVSxaQ)
 
-## [unity for 2D](https://unity3d.com/kr/learn/tutorials/topics/2d-game-creation/2d-game-development-walkthrough?playlist=17093)
+## [Tutorial/unity for 2D](https://unity3d.com/kr/learn/tutorials/topics/2d-game-creation/2d-game-development-walkthrough?playlist=17093)
