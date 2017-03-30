@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4871447063535124}
   - component: {fileID: 212365135513915602}
   - component: {fileID: 61100664017764724}
+  - component: {fileID: 114096271307515958}
   m_Layer: 8
   m_Name: Wall2
   m_TagString: Untagged
@@ -55,6 +56,21 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &114096271307515958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623142652487122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a2378ae445b4fc8b5aea9efe180d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmgSprite: {fileID: 21300098, guid: fbe1e7b94bb1a4a099d5bcb15a00141c, type: 3}
+  hp: 4
+  chopSound1: {fileID: 8300000, guid: 4c2332bc8245b474dad63074059bb755, type: 3}
+  chopSound2: {fileID: 8300000, guid: f6aaac83be9e0493493aace800b76619, type: 3}
 --- !u!212 &212365135513915602
 SpriteRenderer:
   m_ObjectHideFlags: 1
