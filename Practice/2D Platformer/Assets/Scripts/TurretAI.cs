@@ -46,6 +46,10 @@ public class TurretAI : MonoBehaviour {
 		if (target.transform.position.x < transform.position.x) {
 			lookingRight = false;
 		}
+
+		if (curHealth <= 0) {
+			Destroy (gameObject);
+		}
 	}
 
 	void RangeCheck() {
@@ -81,5 +85,10 @@ public class TurretAI : MonoBehaviour {
 				bulletTimer = 0;
 			}
 		}
+	}
+
+	public void Dmage(int damage) {
+		curHealth -= damage;
+		gameObject.GetComponent<Animator> ().Play ("Player_RedFlash");
 	}
 }
