@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour {
 	public Vector3 maxCameraPos;
 
 	// Use this for initialization
-	void Start () {
+	void Start () { 
 		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
@@ -33,4 +33,13 @@ public class CameraFollow : MonoBehaviour {
 				Mathf.Clamp (transform.position.z, minCameraPos.z, maxCameraPos.z));
 		}
 	}
+
+	public void SetMinCamPosition() {
+		minCameraPos = gameObject.transform.position;
+	}
+
+	public void SetMaxCamPosition() {
+		maxCameraPos = gameObject.transform.position;
+	}
+
 }
