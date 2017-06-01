@@ -92,4 +92,8 @@ public class Player : MonoBehaviour {
 	void Die() {
 		Application.LoadLevel (Application.loadedLevel);
 	}
+
+	public void Damage(int dmg) {
+		curHealth -= dmg;
+	}
 }
