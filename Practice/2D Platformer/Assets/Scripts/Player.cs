@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		anim.SetBool ("Grounded", grounded);
-		anim.SetFloat ("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+		anim.SetFloat ("Speed", Mathf.Abs(rb2d.velocity.x));
 
 		if (Input.GetAxis ("Horizontal") < -0.1f) {
 			transform.localScale = new Vector3 (-1, 1, 1);
@@ -37,7 +37,17 @@ public class Player : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		Vector3 easeVelocity = rb2d.velocity;
+		easeVelocity.x *= 0.75f;
+		easeVelocity.y = rb2d.velocity.y;
+		easeVelocity.z = 0.0f;
+
 		float h = Input.GetAxis ("Horizontal");
+
+		// Fake friction / easing the x speed of our player
+		if (grounded) {
+			rb2d.velocity = easeVelocity;
+		}
 
 		// Moving the player
 		rb2d.AddForce ((Vector2.right * speed) * h);
