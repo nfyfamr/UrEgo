@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57af6365180e3b840b4811e0dffdbae1, type: 3}
   m_Name: CaveWaterPooltile1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300640, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -33,4 +33,24 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
-  waterSprites: []
+  sprites:
+  - {fileID: 21300580, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300582, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300584, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300586, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300588, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300638, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300640, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300642, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300644, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300646, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300696, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300698, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300700, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300702, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300704, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300754, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300756, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300758, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300760, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  - {fileID: 21300762, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
