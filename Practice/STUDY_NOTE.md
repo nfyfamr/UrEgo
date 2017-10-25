@@ -37,3 +37,14 @@
 
 
 ## [Tutorial/unity for 2D](https://unity3d.com/kr/learn/tutorials/topics/2d-game-creation/2d-game-development-walkthrough?playlist=17093)
+
+
+## [Tutorial/Tilemap](https://www.youtube.com/watch?v=70sLhuE1sbc)
+- Hierarchy -> Create -> 2D Object -> Tilemap 으로 Tilemap 오브젝트 생성
+- Window -> Tile Pallete 로 타일에디터 창 열기
+- 새로운 csscript 파일에 #if-ifend 루틴 안에 MenuItem attribute([MenuItem("Assets/Create/Tiles/WaterTile")])를 추가해서 유니티의 메뉴창을 수정할 수 있다. => script 파일을 추가만해도(실행하지 않아도) 자동으로 읽어들이는 듯.
+- 그렇게 만든 WaterTile 애셋에 RefreshTile, GetTileData 메서드를 이용하여 주위 타일에 따라 자동으로 스프라이트를 세팅해주는 코드를 추가
+    - RefreshTile: Scene의 Tilemap 오브젝트에 어떠한 인터랙션이 발생할 때마다 refresh가 일어나며, RefreshTile메서드가 불러지는 듯
+    - GetTileData: refresh 중에 호출 되는 듯
+
+
