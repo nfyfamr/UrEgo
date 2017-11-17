@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Groundtile1
   m_EditorClassIdentifier: Assembly-CSharp::GroundTile1
-  m_Sprite: {fileID: 21300732, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
+  m_Sprite: {fileID: 21300728, guid: ecf7cf383ac0a4756a0cc20fddfcaf10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
