@@ -36,5 +36,8 @@ MonoBehaviour:
   m_AnimatedSprites:
   - {fileID: 21301794, guid: def34e5af74d342d3bfded1f7dc6e6fd, type: 3}
   - {fileID: 21301798, guid: def34e5af74d342d3bfded1f7dc6e6fd, type: 3}
+  - {fileID: 21301800, guid: def34e5af74d342d3bfded1f7dc6e6fd, type: 3}
+  - {fileID: 21301804, guid: def34e5af74d342d3bfded1f7dc6e6fd, type: 3}
+  - {fileID: 21301802, guid: def34e5af74d342d3bfded1f7dc6e6fd, type: 3}
   m_AnimationSpeed: 1
   m_AnimationStartTime: 0
