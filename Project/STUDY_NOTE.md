@@ -9,3 +9,8 @@
 - Splash Screen Setting은 Edit > Project Settings > Player > Splash Image > Splash Screen 에서 할 수 있다.
 - Preview 버튼으로 설정된 Splash Screen 이 어떻게 보여지는 확인 할 수 있다.
 
+
+## [텍스트 이미지를 만들 수 있는 사이트](https://cooltext.com/)
+
+
+
