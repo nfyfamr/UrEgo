@@ -11,9 +11,7 @@ public class Player : MonoBehaviour {
     private Transform tr;
     private float currentHealth;
     private float maxHealth;
-
-    public Slider healthBar;
-
+    
     void Start () {
         maxHealth = 5.0f;
         currentHealth = maxHealth;
@@ -27,10 +25,15 @@ public class Player : MonoBehaviour {
 
     }
 
-    void setHealthBar()
+    public void setHealthBar()
     {
-        healthBar.value = currentHealth / maxHealth;
-        healthBar.GetComponentInChildren<Text>().text = currentHealth + " / " + maxHealth;
+        GameObject go = GameObject.Find("HealthBar");
+        if (go != null)
+        {
+            Slider healthBar = go.GetComponent<Slider>();
+            healthBar.value = currentHealth / maxHealth;
+            healthBar.GetComponentInChildren<Text>().text = currentHealth + " / " + maxHealth;
+        }
     }
 
     public void doBehavior(string command)

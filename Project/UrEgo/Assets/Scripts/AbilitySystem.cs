@@ -16,7 +16,11 @@ public class AbilitySystem : MonoBehaviour {
     [SerializeField]
     public GameObject[] blocks_prefab;
 	
-	// Update is called once per frame
+	void Start()
+    {
+        GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().setHealthBar();
+    }
+
 	void Update () {
 
         blockTime += Time.deltaTime / blockCreationTime;
