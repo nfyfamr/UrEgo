@@ -45,7 +45,7 @@ public class AbilitySystem : MonoBehaviour {
 
     public void DestroyBlock(UnityEngine.EventSystems.BaseEventData baseEventData)
     {
-        bool b = blocks.Remove(baseEventData.selectedObject);
+        blocks.Remove(baseEventData.selectedObject);
         Destroy(baseEventData.selectedObject);
         ArrangeBlocks();
     }
