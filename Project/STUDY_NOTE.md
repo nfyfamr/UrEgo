@@ -12,5 +12,17 @@
 
 ## [텍스트 이미지를 만들 수 있는 사이트](https://cooltext.com/)
 
+## [GameObject fading in/out](https://forum.unity.com/threads/fading-in-out-gui-text-with-c-solved.380822/)
+- Coroutine 의 사용이 필요하다.
+- Coroutine 내에서 알파값을 시간에 비례해서 더하거나 뺌
+    t.color = new Color(t.color.r, t.color.g, t.color.b, 1.0f);
+    ... t.color.a - (Time.deltaTime / 1.0f)
+
+## [GameObject Destroying](https://answers.unity.com/questions/860004/unity-46-ui-destroy-problem.html)
+- StartUI에서 Controller로 넘어가가기 위해 StartUI를 다음과 같은 코드로 파괴하려고 했는데, Script 컴포넌트들에 의존성이 있어 Canvas를 없앨 수 없다는 에러가 발생했다.
+    Destroy(GetComponent<Canvas>());
+- Component가 아니라 GameObject를 삭제해야 함.
+
+  
 
 
