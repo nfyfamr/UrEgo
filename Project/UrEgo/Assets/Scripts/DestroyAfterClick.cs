@@ -18,12 +18,8 @@ public class DestroyAfterClick : MonoBehaviour {
 
     public void DestroyAndLoadControllor()
     {
-        if (startUI != null)
-        {
-            Destroy(gameObject);
-        } else
-        {
-            Debug.Log("Cannot find StartUI by tag.");
-        }
+        Destroy(gameObject);
+
+        Instantiate(Resources.Load("ControllerUI"));
     }
 }
