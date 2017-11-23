@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour {
@@ -8,14 +9,28 @@ public class Player : MonoBehaviour {
     private Rigidbody2D m_Rigidbody;
     private Vector3 pos;
     private Transform tr;
+    private float currentHealth;
+    private float maxHealth;
+
+    public Slider healthBar;
 
     void Start () {
+        maxHealth = 5.0f;
+        currentHealth = maxHealth;
+        setHealthBar();
+
         pos = transform.position;
         tr = transform;
     }
 
     void Update () {
 
+    }
+
+    void setHealthBar()
+    {
+        healthBar.value = currentHealth / maxHealth;
+        healthBar.GetComponentInChildren<Text>().text = currentHealth + " / " + maxHealth;
     }
 
     public void doBehavior(string command)
