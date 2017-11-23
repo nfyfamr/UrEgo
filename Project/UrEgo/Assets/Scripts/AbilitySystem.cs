@@ -45,8 +45,14 @@ public class AbilitySystem : MonoBehaviour {
 
     public void DestroyBlock(UnityEngine.EventSystems.BaseEventData baseEventData)
     {
-        blocks.Remove(baseEventData.selectedObject);
-        Destroy(baseEventData.selectedObject);
+        GameObject go = baseEventData.selectedObject;
+        
+        Player p = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+        p.doBehavior(go.name.Substring(8, go.name.Length - 15));
+
+        blocks.Remove(go);
+        Destroy(go);
         ArrangeBlocks();
+
     }
 }

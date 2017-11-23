@@ -14,31 +14,59 @@ public class Player : MonoBehaviour {
         tr = transform;
     }
 
-    public void moveUp(int n = 1)
-    {
-        pos += Vector3.up * n;
-        tr.position = pos;
-    }
-
-    public void moveDown(int n = 1)
-    {
-        pos += Vector3.down * n;
-        tr.position = pos;
-    }
-
-    public void moveLeft(int n = 1)
-    {
-        pos += Vector3.left * n;
-        tr.position = pos;
-    }
-
-    public void moveRight(int n = 1)
-    {
-        pos += Vector3.right * n;
-        tr.position = pos;
-    }
-
     void Update () {
 
     }
+
+    public void doBehavior(string command)
+    {
+        switch (command)
+        {
+            case "up":
+                pos += Vector3.up;
+                tr.position = pos;
+                break;
+
+            case "up2":
+                pos += Vector3.up * 2;
+                tr.position = pos;
+                break;
+
+            case "down":
+                pos += Vector3.down;
+                tr.position = pos;
+                break;
+
+            case "down2":
+                pos += Vector3.down * 2;
+                tr.position = pos;
+                break;
+
+            case "left":
+                pos += Vector3.left;
+                tr.position = pos;
+                break;
+
+            case "left2":
+                pos += Vector3.left * 2;
+                tr.position = pos;
+                break;
+
+            case "right":
+                pos += Vector3.right;
+                tr.position = pos;
+                break;
+
+            case "right2":
+                pos += Vector3.right * 2;
+                tr.position = pos;
+                break;
+
+            case "attack":
+                // do something.
+                break;
+        }
+    }
+
+
 }
