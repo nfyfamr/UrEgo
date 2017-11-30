@@ -27,16 +27,25 @@ public class AbilitySystem : MonoBehaviour {
         if (blockTime > blockCreationTime)
         {
             blockTime = 0;
-            if (blocks.Count < maxBlock)
-            {
-                int rand_index = Random.Range(0, blocks_prefab.Length);
-                GameObject go = (GameObject)Instantiate(blocks_prefab[rand_index], gameObject.transform);
-
-                blocks.Add(go);
-                ArrangeBlocks();
-            }
+			if (blocks.Count < maxBlock) {
+				AddBlock ();
+			}
         }
     }
+
+	public void AddBlock()
+	{
+		GameObject go;
+
+		if (true) {
+			go = (GameObject) Instantiate (Resources.Load ("blocks/Ability_up2"), gameObject.transform);
+		} else {
+		}
+
+		blocks.Add(go);
+		ArrangeBlocks();
+	}
+		
 
     public void ArrangeBlocks()
     {
