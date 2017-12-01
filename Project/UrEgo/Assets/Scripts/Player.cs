@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 using System;
 
 
 public class Player : MonoBehaviour {
-
-    private Rigidbody2D m_Rigidbody;
-    private Vector3 pos;
+    
     private Transform tr;
     private float currentHealth;
     private float maxHealth;
     private Tilemap grasses_tm;
     private Tilemap start_hole_tm;
+    private Tilemap stage1_tm;
+    private String thisScene;
 
 
     void Start () {
         maxHealth = 5.0f;
         currentHealth = maxHealth;
         setHealthBar();
-
-        pos = transform.position;
+        
         tr = transform;
+        
+        Grid grid = GameObject.FindObjectOfType<Grid>();
         grasses_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "grasses");
         start_hole_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "start_hole");
-        
+        stage1_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "stage1_tm");
 
+        thisScene = SceneManager.GetActiveScene().name;
     }
 
     void Update () {
@@ -90,7 +93,7 @@ public class Player : MonoBehaviour {
                 break;
         }
 
-        if (isStartHole())
+        if (thisScene == "Main Scene" && isStartHole())
         {
             Application.LoadLevel("Stage1 Seen");
         }
@@ -104,37 +107,77 @@ public class Player : MonoBehaviour {
 
     private void MoveUp()
     {
-        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.up;
-        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        Tilemap tm;
+        if (thisScene == "Main Scene")
         {
-            tr.position = grasses_tm.CellToWorld(cell);
+            tm = grasses_tm;
+        }
+        else
+        {
+            tm = stage1_tm;
+        }
+
+        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.up;
+        if (tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = tm.CellToWorld(cell);
         }
     }
 
     private void MoveDown()
     {
-        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.down;
-        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        Tilemap tm;
+        if (thisScene == "Main Scene")
         {
-            tr.position = grasses_tm.CellToWorld(cell);
+            tm = grasses_tm;
+        }
+        else
+        {
+            tm = stage1_tm;
+        }
+
+        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.down;
+        if (tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = tm.CellToWorld(cell);
         }
     }
 
     private void MoveLeft()
     {
-        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.left;
-        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        Tilemap tm;
+        if (thisScene == "Main Scene")
         {
-            tr.position = grasses_tm.CellToWorld(cell);
+            tm = grasses_tm;
+        }
+        else
+        {
+            tm = stage1_tm;
+        }
+
+        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.left;
+        if (tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = tm.CellToWorld(cell);
         }
     }
 
     private void MoveRight()
     {
-        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.right;
-        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        Tilemap tm;
+        if (thisScene == "Main Scene")
         {
-            tr.position = grasses_tm.CellToWorld(cell);
+            tm = grasses_tm;
+        }
+        else
+        {
+            tm = stage1_tm;
+        }
+
+        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.right;
+        if (tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = tm.CellToWorld(cell);
         }
     }
 
