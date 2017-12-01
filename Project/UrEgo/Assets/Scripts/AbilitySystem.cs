@@ -9,16 +9,18 @@ public class AbilitySystem : MonoBehaviour {
     private float blockTime = 0.0f;
     public int maxBlock = 5;
     private static List<GameObject> blocks = new List<GameObject>();
+    private string[] directives = { "up1", "up2", "down1", "down2", "left1", "left2", "right1", "right2", "attack" };
 
     private float blockXPosBase = -330.0f;
     private float blockXPosOffset = 20.0f;
-
-    [SerializeField]
-    public GameObject[] blocks_prefab;
-	
+    	
 	void Start()
     {
         GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>().setHealthBar();
+        for (int i=0; i<maxBlock; ++i)
+        {
+            AddBlock();
+        }
     }
 
 	void Update () {
@@ -32,17 +34,33 @@ public class AbilitySystem : MonoBehaviour {
 			}
         }
     }
-
+    
 	public void AddBlock()
 	{
 		GameObject go;
 
-		if (true) {
-			go = (GameObject) Instantiate (Resources.Load ("blocks/Ability_up2"), gameObject.transform);
-		} else {
-		}
-
-		blocks.Add(go);
+        if (!blocks.Exists(o => o.name.Substring(8, o.name.Length - 16) == "up"))
+        {
+            go = (GameObject)Instantiate(Resources.Load("blocks/Ability_up" + Random.Range(1, 3)), gameObject.transform);
+        }
+        else if (!blocks.Exists(o => o.name.Substring(8, o.name.Length - 16) == "down"))
+        {
+            go = (GameObject)Instantiate(Resources.Load("blocks/Ability_down" + Random.Range(1, 3)), gameObject.transform);
+        }
+        else if (!blocks.Exists(o => o.name.Substring(8, o.name.Length - 16) == "left"))
+        {
+            go = (GameObject)Instantiate(Resources.Load("blocks/Ability_left" + Random.Range(1, 3)), gameObject.transform);
+        }
+        else if (!blocks.Exists(o => o.name.Substring(8, o.name.Length - 16) == "right"))
+        {
+            go = (GameObject)Instantiate(Resources.Load("blocks/Ability_right" + Random.Range(1, 3)), gameObject.transform);
+        }
+        else
+        {
+            go = (GameObject)Instantiate(Resources.Load("blocks/Ability_" + directives[Random.Range(0, directives.Length)]), gameObject.transform);
+        }
+        
+        blocks.Add(go);
 		ArrangeBlocks();
 	}
 		

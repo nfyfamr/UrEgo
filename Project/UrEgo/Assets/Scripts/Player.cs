@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using System;
+
 
 public class Player : MonoBehaviour {
 
@@ -11,6 +13,7 @@ public class Player : MonoBehaviour {
     private Transform tr;
     private float currentHealth;
     private float maxHealth;
+    private Tilemap grasses_tm;
     
     void Start () {
         maxHealth = 5.0f;
@@ -19,6 +22,9 @@ public class Player : MonoBehaviour {
 
         pos = transform.position;
         tr = transform;
+        grasses_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "grasses");
+
+
     }
 
     void Update () {
@@ -38,51 +44,84 @@ public class Player : MonoBehaviour {
 
     public void doBehavior(string command)
     {
+        Debug.Log(grasses_tm.WorldToCell(tr.position));
         switch (command)
         {
-            case "up":
-                pos += Vector3.up;
-                tr.position = pos;
+            case "up1":
+                MoveUp();
                 break;
 
             case "up2":
-                pos += Vector3.up * 2;
-                tr.position = pos;
+                MoveUp();
+                MoveUp();
                 break;
 
-            case "down":
-                pos += Vector3.down;
-                tr.position = pos;
+            case "down1":
+                MoveDown();
                 break;
 
             case "down2":
-                pos += Vector3.down * 2;
-                tr.position = pos;
+                MoveDown();
+                MoveDown();
                 break;
 
-            case "left":
-                pos += Vector3.left;
-                tr.position = pos;
+            case "left1":
+                MoveLeft();
                 break;
 
             case "left2":
-                pos += Vector3.left * 2;
-                tr.position = pos;
+                MoveLeft();
+                MoveLeft();
                 break;
 
-            case "right":
-                pos += Vector3.right;
-                tr.position = pos;
+            case "right1":
+                MoveRight();
                 break;
 
             case "right2":
-                pos += Vector3.right * 2;
-                tr.position = pos;
+                MoveRight();
+                MoveRight();
                 break;
 
             case "attack":
                 // do something.
                 break;
+        }
+    }
+
+    private void MoveUp()
+    {
+        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.up;
+        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = grasses_tm.CellToWorld(cell);
+        }
+    }
+
+    private void MoveDown()
+    {
+        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.down;
+        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = grasses_tm.CellToWorld(cell);
+        }
+    }
+
+    private void MoveLeft()
+    {
+        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.left;
+        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = grasses_tm.CellToWorld(cell);
+        }
+    }
+
+    private void MoveRight()
+    {
+        Vector3Int cell = grasses_tm.WorldToCell(tr.position) + Vector3Int.right;
+        if (grasses_tm.GetTile(cell + Vector3Int.down) == null)
+        {
+            tr.position = grasses_tm.CellToWorld(cell);
         }
     }
 
