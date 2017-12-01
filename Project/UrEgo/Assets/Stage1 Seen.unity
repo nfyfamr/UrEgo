@@ -112,6 +112,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &1344212665
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019933078963314, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7140f0d9d4f79f240a8abd53cd6a32b6, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1483238584
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +214,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

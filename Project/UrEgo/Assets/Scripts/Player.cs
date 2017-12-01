@@ -14,7 +14,9 @@ public class Player : MonoBehaviour {
     private float currentHealth;
     private float maxHealth;
     private Tilemap grasses_tm;
-    
+    private Tilemap start_hole_tm;
+
+
     void Start () {
         maxHealth = 5.0f;
         currentHealth = maxHealth;
@@ -23,7 +25,8 @@ public class Player : MonoBehaviour {
         pos = transform.position;
         tr = transform;
         grasses_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "grasses");
-
+        start_hole_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "start_hole");
+        
 
     }
 
@@ -44,7 +47,6 @@ public class Player : MonoBehaviour {
 
     public void doBehavior(string command)
     {
-        Debug.Log(grasses_tm.WorldToCell(tr.position));
         switch (command)
         {
             case "up1":
@@ -87,6 +89,17 @@ public class Player : MonoBehaviour {
                 // do something.
                 break;
         }
+
+        if (isStartHole())
+        {
+            Application.LoadLevel("Stage1 Seen");
+        }
+    }
+
+    private bool isStartHole()
+    {
+        TileBase cell = start_hole_tm.GetTile(start_hole_tm.WorldToCell(tr.position) + Vector3Int.down);
+        return cell != null && cell.name == "Startholetile1";
     }
 
     private void MoveUp()
