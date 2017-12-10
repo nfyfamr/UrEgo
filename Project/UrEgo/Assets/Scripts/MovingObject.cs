@@ -85,7 +85,6 @@ public class MovingObject : MonoBehaviour {
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject e in gos)
         {
-            Debug.Log(e);
             if (tm.WorldToCell(e.GetComponent<Enemy>().transform.position) == tm.WorldToCell(transform.position) + v)
             {
                 return e.GetComponent<Enemy>();
