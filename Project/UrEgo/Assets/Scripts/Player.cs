@@ -7,16 +7,19 @@ using UnityEngine.SceneManagement;
 using System;
 
 
-public class Player : MovingObject {
+public class Player : MovingObject
+{
 
-    void Start () {
+    void Start()
+    {
         maxHealth = 5.0f;
         currentHealth = maxHealth;
         setHealthBar();
 
     }
 
-    void Update () {
+    void Update()
+    {
 
     }
 
@@ -88,4 +91,14 @@ public class Player : MovingObject {
         setHealthBar();
     }
 
+    public void RestoreHealth(int point)
+    {
+        currentHealth += point;
+        currentHealth = currentHealth > maxHealth ? maxHealth : currentHealth;
+    }
+
+    public void UpgradeHealth(int point)
+    {
+        maxHealth += point;
+    }
 }

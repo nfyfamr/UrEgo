@@ -24,7 +24,26 @@ public class MovingObject : MonoBehaviour {
     protected void Step(Vector3Int v)
     {
         Tilemap tm = GetTilemap();
-        
+
+        if (Check(v) != null && this.name == "Player" && Check(v).name.StartsWith("item"))
+        {
+            switch (Check(v).name)
+            {
+                case "item1":
+                    ((Player)this).RestoreHealth(1);
+                    break;
+
+                case "item2":
+                    ((Player)this).RestoreHealth(2);
+                    break;
+
+                case "item3":
+                    ((Player)this).UpgradeHealth(1);
+                    break;
+            }
+            GetTilemap().SetTile(tm.WorldToCell(transform.position) + v + Vector3Int.down, null);
+        }
+
         if (Check(v) == null)
         {
             Vector3Int cell = tm.WorldToCell(transform.position) + v;
