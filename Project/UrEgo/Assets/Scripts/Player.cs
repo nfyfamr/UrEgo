@@ -95,10 +95,12 @@ public class Player : MovingObject
     {
         currentHealth += point;
         currentHealth = currentHealth > maxHealth ? maxHealth : currentHealth;
+        setHealthBar();
     }
 
     public void UpgradeHealth(int point)
     {
         maxHealth += point;
+        setHealthBar();
     }
 }

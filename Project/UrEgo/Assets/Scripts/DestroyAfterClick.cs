@@ -33,7 +33,7 @@ public class DestroyAfterClick : MonoBehaviour {
 
         for (int i=0; i<20; ++i)
         {
-            MovingObject.GetTilemap().SetTile(new Vector3Int(Random.Range(-10, 10), Random.Range(-10, -50), 0), Resources.Load<Tile>("items/item" + Random.Range(1, 3)));
+            MovingObject.GetTilemap().SetTile(new Vector3Int(Random.Range(-10, 10), Random.Range(-10, -50), 0), Resources.Load<Tile>("items/item" + Random.Range(1, 4)));
         }
     }
 }
