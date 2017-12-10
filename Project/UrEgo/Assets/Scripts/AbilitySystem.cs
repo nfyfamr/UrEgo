@@ -8,7 +8,7 @@ public class AbilitySystem : MonoBehaviour {
     public float blockCreationTime = 1.0f;
     private float blockTime = 0.0f;
     public int maxBlock = 5;
-    private static List<GameObject> blocks = new List<GameObject>();
+    public static List<GameObject> blocks = new List<GameObject>();
     private string[] directives = { "up1", "up2", "down1", "down2", "left1", "left2", "right1", "right2", "attack", "attack", "attack", "attack" };
 
     private float blockXPosBase = -330.0f;
@@ -38,7 +38,6 @@ public class AbilitySystem : MonoBehaviour {
 	public void AddBlock()
 	{
 		GameObject go;
-
         if (!blocks.Exists(o => o.name.Substring(8, o.name.Length - 16) == "up"))
         {
             go = (GameObject)Instantiate(Resources.Load("blocks/Ability_up" + Random.Range(1, 3)), gameObject.transform);

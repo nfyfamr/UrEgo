@@ -102,6 +102,7 @@ public class Player : MovingObject
 
         if (SceneManager.GetActiveScene().name == "Main Scene" && isStartHole())
         {
+            AbilitySystem.blocks.Clear();
             SceneManager.LoadScene("Stage1 Seen");
         }
     }
