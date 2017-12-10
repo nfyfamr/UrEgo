@@ -7,30 +7,13 @@ using UnityEngine.SceneManagement;
 using System;
 
 
-public class Player : MonoBehaviour {
-    
-    private Transform tr;
-    private float currentHealth;
-    private float maxHealth;
-    private Tilemap grasses_tm;
-    private Tilemap start_hole_tm;
-    private Tilemap stage1_tm;
-    private String thisScene;
-
+public class Player : MovingObject {
 
     void Start () {
         maxHealth = 5.0f;
         currentHealth = maxHealth;
         setHealthBar();
-        
-        tr = transform;
-        
-        Grid grid = GameObject.FindObjectOfType<Grid>();
-        grasses_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "grasses");
-        start_hole_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "start_hole");
-        stage1_tm = Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "stage1_tm");
 
-        thisScene = SceneManager.GetActiveScene().name;
     }
 
     void Update () {
@@ -53,39 +36,39 @@ public class Player : MonoBehaviour {
         switch (command)
         {
             case "up1":
-                MoveUp();
+                Step(Vector3Int.up);
                 break;
 
             case "up2":
-                MoveUp();
-                MoveUp();
+                Step(Vector3Int.up);
+                Step(Vector3Int.up);
                 break;
 
             case "down1":
-                MoveDown();
+                Step(Vector3Int.down);
                 break;
 
             case "down2":
-                MoveDown();
-                MoveDown();
+                Step(Vector3Int.down);
+                Step(Vector3Int.down);
                 break;
 
             case "left1":
-                MoveLeft();
+                Step(Vector3Int.left);
                 break;
 
             case "left2":
-                MoveLeft();
-                MoveLeft();
+                Step(Vector3Int.left);
+                Step(Vector3Int.left);
                 break;
 
             case "right1":
-                MoveRight();
+                Step(Vector3Int.right);
                 break;
 
             case "right2":
-                MoveRight();
-                MoveRight();
+                Step(Vector3Int.right);
+                Step(Vector3Int.right);
                 break;
 
             case "attack":
@@ -93,93 +76,16 @@ public class Player : MonoBehaviour {
                 break;
         }
 
-        if (thisScene == "Main Scene" && isStartHole())
+        if (SceneManager.GetActiveScene().name == "Main Scene" && isStartHole())
         {
-            Application.LoadLevel("Stage1 Seen");
+            SceneManager.LoadScene("Stage1 Seen");
         }
     }
 
-    private bool isStartHole()
+    public void GetDamage(int damage)
     {
-        TileBase cell = start_hole_tm.GetTile(start_hole_tm.WorldToCell(tr.position) + Vector3Int.down);
-        return cell != null && cell.name == "Startholetile1";
+        currentHealth -= damage;
+        setHealthBar();
     }
-
-    private void MoveUp()
-    {
-        Tilemap tm;
-        if (thisScene == "Main Scene")
-        {
-            tm = grasses_tm;
-        }
-        else
-        {
-            tm = stage1_tm;
-        }
-
-        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.up;
-        if (tm.GetTile(cell + Vector3Int.down) == null)
-        {
-            tr.position = tm.CellToWorld(cell);
-        }
-    }
-
-    private void MoveDown()
-    {
-        Tilemap tm;
-        if (thisScene == "Main Scene")
-        {
-            tm = grasses_tm;
-        }
-        else
-        {
-            tm = stage1_tm;
-        }
-
-        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.down;
-        if (tm.GetTile(cell + Vector3Int.down) == null)
-        {
-            tr.position = tm.CellToWorld(cell);
-        }
-    }
-
-    private void MoveLeft()
-    {
-        Tilemap tm;
-        if (thisScene == "Main Scene")
-        {
-            tm = grasses_tm;
-        }
-        else
-        {
-            tm = stage1_tm;
-        }
-
-        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.left;
-        if (tm.GetTile(cell + Vector3Int.down) == null)
-        {
-            tr.position = tm.CellToWorld(cell);
-        }
-    }
-
-    private void MoveRight()
-    {
-        Tilemap tm;
-        if (thisScene == "Main Scene")
-        {
-            tm = grasses_tm;
-        }
-        else
-        {
-            tm = stage1_tm;
-        }
-
-        Vector3Int cell = tm.WorldToCell(tr.position) + Vector3Int.right;
-        if (tm.GetTile(cell + Vector3Int.down) == null)
-        {
-            tr.position = tm.CellToWorld(cell);
-        }
-    }
-
 
 }

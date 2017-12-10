@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DestroyAfterClick : MonoBehaviour {
     
+    public int max_enemy;
+
 	// Update is called once per frame
 	void Update () {
         if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
@@ -21,5 +23,11 @@ public class DestroyAfterClick : MonoBehaviour {
         Destroy(gameObject);
 
         Instantiate(Resources.Load("ControllerUI"));
+
+        for (int i=0; i<max_enemy; ++i)
+        {
+            Vector3 pos = MovingObject.GetTilemap().CellToWorld(new Vector3Int(Random.Range(-10, 10), Random.Range(-10, -50), 0));
+            Instantiate(Resources.Load("enemies/Enemy" + Random.Range(1, 5)), pos, transform.rotation);
+        }
     }
 }

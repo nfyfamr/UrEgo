@@ -7,6 +7,7 @@ TagManager:
   - background
   - StartUI
   - StartGrid
+  - Enemy
   layers:
   - Default
   - TransparentFX
