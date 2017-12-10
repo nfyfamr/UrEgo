@@ -9,7 +9,7 @@ public class AbilitySystem : MonoBehaviour {
     private float blockTime = 0.0f;
     public int maxBlock = 5;
     private static List<GameObject> blocks = new List<GameObject>();
-    private string[] directives = { "up1", "up2", "down1", "down2", "left1", "left2", "right1", "right2", "attack" };
+    private string[] directives = { "up1", "up2", "down1", "down2", "left1", "left2", "right1", "right2", "attack", "attack", "attack", "attack" };
 
     private float blockXPosBase = -330.0f;
     private float blockXPosOffset = 20.0f;

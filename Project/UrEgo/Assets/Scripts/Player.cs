@@ -9,13 +9,15 @@ using System;
 
 public class Player : MovingObject
 {
+    private int damage;
 
     void Start()
     {
-        maxHealth = 5.0f;
+        maxHealth = 20.0f;
         currentHealth = maxHealth;
         setHealthBar();
-
+        
+        damage = 2;
     }
 
     void Update()
@@ -75,7 +77,26 @@ public class Player : MovingObject
                 break;
 
             case "attack":
-                // do something.
+                Enemy e;
+                if ((e = HasEnemy(Vector3Int.up)) != null)
+                {
+                    e.GetDamage(damage);
+                }
+
+                if ((e = HasEnemy(Vector3Int.down)) != null)
+                {
+                    e.GetDamage(damage);
+                }
+
+                if ((e = HasEnemy(Vector3Int.left)) != null)
+                {
+                    e.GetDamage(damage);
+                }
+
+                if ((e = HasEnemy(Vector3Int.right)) != null)
+                {
+                    e.GetDamage(damage);
+                }
                 break;
         }
 
@@ -85,9 +106,9 @@ public class Player : MovingObject
         }
     }
 
-    public void GetDamage(int damage)
+    public override void GetDamage(int damage)
     {
-        currentHealth -= damage;
+        base.GetDamage(damage);
         setHealthBar();
     }
 

@@ -12,7 +12,16 @@ public class MovingObject : MonoBehaviour {
     protected float currentHealth;
     protected float maxHealth;
     public Vector3Int cell;
-    
+
+    public virtual void GetDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (this.name.StartsWith("Enemy") && this.currentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     protected bool isStartHole()
     {
@@ -68,5 +77,21 @@ public class MovingObject : MonoBehaviour {
         {
             return Array.Find(FindObjectsOfType<Tilemap>(), x => x.name == "stage1_tm");
         }
+    }
+
+    protected Enemy HasEnemy(Vector3Int v)
+    {
+        Tilemap tm = GetTilemap();
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in gos)
+        {
+            Debug.Log(e);
+            if (tm.WorldToCell(e.GetComponent<Enemy>().transform.position) == tm.WorldToCell(transform.position) + v)
+            {
+                return e.GetComponent<Enemy>();
+            }
+        }
+
+        return null;
     }
 }

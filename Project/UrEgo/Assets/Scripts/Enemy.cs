@@ -11,8 +11,11 @@ public class Enemy : MovingObject {
 
     // Use this for initialization
     void Start () {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        maxHealth = 3.0f;
+        currentHealth = maxHealth;
         damage = 1;
+
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
